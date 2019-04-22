@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../style/index.css">
+    <title>Drag-and-Drop</title>
+</head>
+
+<body>
+    </br>
+    <script src="../js/index.js"></script>
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col" id="store" ondragover="allowDrag(event)" ondrop="drop(event)">
+                <h2><b>STORE</b></h2>
+                <!-- <p id="item1" ondragstart="drag(event)" draggable="true">APPLES</p>
+                <p id="item2" ondragstart="drag(event)" draggable="true">ORANGES</p> -->
+                <div class="card" id="item1" ondragstart="drag(event)" draggable="true">
+                    <img class="card-img-top" src="../assets/images/apple.jpg" alt="CARD IMG">
+                    <div class="card-body">
+                        <h4 class="card-title">APPLE</h4>
+                        <p class="card-text">
+                            <b>QUANTITY:</b> 12 <b>PRICE:</b> 180
+                        </p>
+                    </div>
+                </div>
+                <br />
+                <div class="card" id="item2" ondragstart="drag(event)" draggable="true">
+                    <img class="card-img-top" src="../assets/images/orange.jpg" alt="CARD IMG">
+                    <div class="card-body">
+                        <h4 class="card-title">ORANGE</h4>
+                        <p class="card-text">
+                            <b>QUANTITY:</b> 10 <b>PRICE:</b> 100
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="cart" ondragover="allowDrag(event)" ondrop="drop(event)">
+                <h2><b>CART</b></h2>
+                <!-- <p id="item1" ondragstart="drag(event)" draggable="true">PEARS</p> -->
+            </div>
+            <div class="col" id="delivery" ondragover="allowDrag(event)" ondrop="drop(event)">
+                <h2><b>OUT FOR DELIVERY</b></h2>
+                <!-- <p id="item1" ondragstart="drag(event)" draggable="true">GRAPES</p> -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <br />Drag-and-Drop by Anirban Das | Used HTML5, SCSS and javascript
+    </footer>
+</body>
+
+</html>

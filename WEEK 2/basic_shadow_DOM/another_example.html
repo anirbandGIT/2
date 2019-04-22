@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>another_example</title>
+</head>
+<!-- When HTML gets converted to the DOM, every element is considered to be a node.
+When you have a group of these nodes nested inside one another, it is known as a node tree. -->
+
+<body>
+    <div class="widget">Hello, world!</div>
+    <script>
+        var host = document.querySelector('.widget');
+        var root = host.createShadowRoot();
+
+        var header = document.createElement('h1'); //Created shadow h1
+        header.textContent = 'A Wild Shadow Header Appeared!';
+
+        var paragraph = document.createElement('p');//reated shadow p
+        paragraph.textContent = 'Some sneaky shadow text';
+
+        //Appended shadow elements
+        root.appendChild(header);
+        root.appendChild(paragraph);
+
+        // I'm taking our previous example and adding two additional elements to it.
+        // I've done this to illustrate that working with the shadow DOM is really not so
+        // different from working with the regular DOM.You still create elements
+        // and use appendChild or insertBefore to add them to a parent
+    </script>
+</body>
+
+</html>

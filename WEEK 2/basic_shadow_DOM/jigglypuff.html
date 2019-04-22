@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jigglypuff</title>
+</head>
+<!-- When HTML gets converted to the DOM, every element is considered to be a node.
+When you have a group of these nodes nested inside one another, it is known as a node tree. -->
+
+<body>
+    <div class="pokemon">
+        <!-- Jigglypuff will be replaced -->
+        Jigglypuff
+    </div>
+
+    <template class="pokemon-template">
+        <h1>A Wild <content></content> Appeared!</h1>
+        <!-- <h1>A Wild <content select=""></content> Appeared!</h1> -->
+
+    </template>
+
+    <script>
+        var host = document.querySelector('.pokemon');
+        var root = host.createShadowRoot();
+        var template = document.querySelector('.pokemon-template');
+        root.appendChild(document.importNode(template.content, true));
+        // root.appendChild(template.content);
+    </script>
+    <!-- Using the <content> tag, we've created an insertion point that projects the text
+    from the .pokemon div, so it appears within our shadow <h1>.
+    Insertion points are very powerful because they allow us to change the order
+    in which things render without physically altering the source. It also means that
+    we can be selective about what gets rendered. -->
+
+    <!-- You may have noticed that we're using a template tag instead of building our shadow DOM
+    entirely in JavaScript. I've found that using <template> tags makes the process of
+    working with the shadow DOM much easier. -->
+</body>
+
+</html>

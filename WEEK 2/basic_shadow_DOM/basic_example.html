@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>basic_example</title>
+</head>
+<!-- When HTML gets converted to the DOM, every element is considered to be a node.
+When you have a group of these nodes nested inside one another, it is known as a node tree. -->
+
+<body>
+    <div class="my-widget">
+        <h1>My Widget Header</h1>
+        <p>Some my-widget content</p>
+    </div>
+    <div class="my-other-widget">
+        <h1>My Other Widget Header</h1>
+        <p>Some my-other-widget content</p>
+    </div>
+    <!-- What's unique about shadow DOM is that it allows us to create our own node trees,
+    known as shadow trees. These shadow trees encapsulate their contents and render
+    only what they choose. This means we can inject text, rearrange content,
+    add styles, etc. -->
+
+    <h1>Class widget</h1>
+    <div class="widget">Hello, world!</div>
+    <script>
+        var host = document.querySelector('.widget');
+        var root = host.createShadowRoot();             //Creating shadow DOM
+        root.textContent = 'Im inside yr div!';         //Shadow DOM content replaces text
+    </script>
+    <!-- Using the code above, we've replaced the text content of our .widget div using a
+    shadow tree. To create a shadow tree, we first specify that a node should act
+    as a shadow host. In this case, we use .widget as our shadow host. Then we add a
+    new node to our shadow host, known as a shadow root. The shadow root acts as
+    the first node in your shadow tree and all other nodes descend from it. -->
+
+    <!-- The takeaway is that the content inside of the shadow host is not rendered.
+    Instead, the content inside of the shadow root is what gets rendered. -->
+</body>
+
+</html>

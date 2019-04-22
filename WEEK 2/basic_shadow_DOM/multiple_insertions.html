@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multiple Insertions</title>
+</head>
+
+<body>
+    <div class="bio">
+        <span class="first-name">Rob</span>
+        <span class="last-name">Dodson</span>
+        <span class="city">San Francisco</span>
+        <span class="state">California</span>
+        <p>
+            I specialize in Front-End development (HTML/CSS/JavaScript) with a touch of Node and Ruby sprinkled in. I’m
+            also a writer and occasional daily blogger. Though I’m originally from the South, these days I live and work
+            in beautiful San Francisco, California.
+        </p>
+    </div>
+
+    <template class="bio-template">
+        <dl>
+            <dt>First Name</dt>
+            <dd>
+                <content select=".first-name"></content>
+            </dd>
+            <dt>Last Name</dt>
+            <dd>
+                <content select=".last-name"></content>
+            </dd>
+            <dt>City</dt>
+            <dd>
+                <content select=".city"></content>
+            </dd>
+            <dt>State</dt>
+            <dd>
+                <content select=".state"></content>
+            </dd>
+        </dl>
+        <p>
+            <content select=""></content>
+            <!-- WILDCARDS: it will grab any content in the shadow host that is left over -->
+
+            <!-- it is greedy!!! -->
+
+            <!-- <content></content>
+            <conent select=""></conent>
+            <content select="*"></content> -->
+        </p>
+    </template>
+
+    <script>
+        var host = document.querySelector('.bio');
+        var root = host.createShadowRoot();
+        var template = document.querySelector('.bio-template');
+        root.appendChild(template.content);
+    </script>
+
+    <!-- In this example, we're building a very simple biography widget.
+    Because each definition field needs specific content, we have to tell
+    the <content> tag to be selective about where things are inserted.
+    To do this, we use the select attribute. The select attribute uses
+    CSS selectors to pick out which items it wishes to display. -->
+
+    <!-- For instance, <content select=".last-name"> looks inside the shadow host
+    for any element with a matching class of .last-name. If it finds a match,
+    it will render its content inside of the shadow DOM. -->
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+* {
+  font-family: monospace;
+}
+
+h2 {
+  text-align: center;
+}
+
+.card-img-top {
+  width: 150px;
+}
+
+.col {
+  width: 30%;
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  background-color: #f10d0d;
+  position: absolute;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */
